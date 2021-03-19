@@ -2,8 +2,21 @@
 {% block title %}Home{%endblock%}
 
 {% block content%}
-    <main>
-        <h1>Essa é a Home</h1>
-        <p>Acesse <a href="#">aqui</a>  para mamar</p>
+    <main style="margin-top: 40px;">
+        <h1 align=center>Notes</h1>
+        
+        <ul class="list-group list-group-flush" id="notes">
+            {% for notes in user.notes %}
+                <li class="list-group-item">{{note.data}}</li>
+            {% endfor %}
+        </ul>
+
+        <form action="" method="post">
+            <textarea name="note" id="note" class="form-control"></textarea>
+            <br>
+            <div align="center">
+                <button type="submit" class="btn btn-primary">Add Note</button>
+            </div>
+        </form>
     </main>        
 {% endblock%}
